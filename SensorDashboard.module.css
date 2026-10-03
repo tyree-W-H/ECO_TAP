@@ -1,0 +1,141 @@
+.page {
+  --paper: #eef2f3;
+  --surface: #ffffff;
+  --ink: #14232b;
+  --muted: #5b6c75;
+  --grid: #d5dde0;
+  --line: #1f6f8b;
+  --ok: #23704f;
+  --warn: #b04a12;
+
+  min-height: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --paper: #101b21;
+    --surface: #18262e;
+    --ink: #e6eef1;
+    --muted: #93a5ae;
+    --grid: #2a3c46;
+    --line: #5fb6d3;
+    --ok: #5fc79a;
+    --warn: #f0965a;
+  }
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.live,
+.stale {
+  margin: 0;
+  font-weight: 600;
+}
+.live { color: var(--ok); }
+.stale { color: var(--warn); }
+.live::before,
+.stale::before {
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: 0.45em;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.temp {
+  margin: 0.1rem 0 0.25rem;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.unit {
+  margin-left: 0.15em;
+  font-size: 0.35em;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.range {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+.range dt {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.range dd {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.picker {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.picker select {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+}
+.picker select:focus-visible {
+  outline: 2px solid var(--line);
+  outline-offset: 2px;
+}
+
+.problem {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--warn);
+  background: var(--surface);
+}
+
+.chart {
+  height: 20rem;
+  padding: 1rem 0.5rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--grid);
+  border-radius: 6px;
+}
+
+.table {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+}
+.table caption {
+  padding-bottom: 0.5rem;
+  text-align: left;
+  color: var(--muted);
+}
+.table th,
+.table td {
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid var(--grid);
+  text-align: left;
+}
+.table th:last-child,
+.table td:last-child {
+  text-align: right;
+}
